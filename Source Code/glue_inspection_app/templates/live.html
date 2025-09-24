@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="title">Live Detection</h2>
+
+<div class="panel">
+  <div class="mx">
+    <div class="video-wrap" style="aspect-ratio: 16/9;">
+      <img id="live" src="{{ url_for('video_feed_detect') }}" alt="Live detection">
+    </div>
+  </div>
+  <p class="hint">
+    Showing only detections with Good confidence Score. The badge at top-left updates ~10×/sec.
+  </p>
+</div>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="title">Image Upload Detection</h2>
+
+<form class="panel" method="POST" enctype="multipart/form-data">
+  <label class="file">
+    <input type="file" name="file" accept=".jpg,.jpeg,.png,.bmp" required>
+  </label>
+  <button class="btn" type="submit">Upload & Detect</button>
+</form>
+
+<div class="grid-2">
+  <div class="panel">
+    <h3>Original</h3>
+    {% if original_image %}
+      <img src="{{ original_image }}" class="img" alt="original">
+    {% else %}
+      <div class="empty">No image yet</div>
+    {% endif %}
+  </div>
+  <div class="panel">
+    <h3>Result</h3>
+    {% if result_image %}
+      <img src="{{ result_image }}" class="img" alt="result">
+    {% else %}
+      <div class="empty">Upload an image to see detections</div>
+    {% endif %}
+  </div>
+</div>
+
+{% if detections %}
+<div class="panel">
+  <h3>Detections</h3>
+  <table class="table">
+    <thead><tr><th>Class</th><th>Confidence</th><th>Box</th></tr></thead>
+    <tbody>
+      {% for d in detections %}
+      <tr><td>{{ d.cls }}</td><td>{{ d.conf }}</td><td>{{ d.box }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}
+

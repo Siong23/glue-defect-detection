@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>Automated Glue Inspection</h1>
+    <p>Optimized for Jetson Orin Nano: smooth camera, stable live detection, and quick one-click capture.</p>
+    <div class="cta">
+      <a class="btn" href="{{ url_for('live_page') }}">Live Detection</a>
+      <a class="btn ghost" href="{{ url_for('capture_page') }}">Capture & Detect</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="{{ url_for('static', filename='hero.svg') }}" alt="Glue inspection hero" />
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card">
+    <h3>Ultra Smooth</h3>
+    <p>720p@30FPS preview to keep the system cool and responsive.</p>
+  </div>
+  <div class="card">
+    <h3>Accurate</h3>
+    <p>Only show detections with Good confidence Score.</p>
+  </div>
+  <div class="card">
+    <h3>Robust</h3>
+    <p>Background inference + auto pause when tab is hidden.</p>
+  </div>
+</section>
+{% endblock %}
+

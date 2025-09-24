@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="title">Capture Images for Retraining</h2>
+
+<div class="grid-1">
+  <div class="panel">
+    <h3>Camera</h3>
+    <div class="video-wrap" style="aspect-ratio:16/9;max-width:960px;margin:auto;">
+      <img id="capStream" src="{{ url_for('video_feed_capture') }}" class="img" alt="camera">
+    </div>
+    <div style="text-align:center;margin-top:1rem;">
+      <button class="btn" id="btnSave">Capture &amp; Save</button>
+      <p id="capMsg" class="hint" style="margin-top:.75rem;"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const btn = document.getElementById("btnSave");
+const msg = document.getElementById("capMsg");
+
+btn.addEventListener("click", async () => {
+  btn.disabled = true;
+  msg.textContent = "Capturing…";
+  try {
+    const res = await fetch("{{ url_for('save_capture') }}", { method: "POST" });
+    const data = await res.json();
+    if (data.status === "success") {
+      msg.textContent = "✅ Saved: " + data.filename + " (in new_images/)";
+    } else {
+      msg.textContent = "❌ " + (data.message || "Failed to save");
+    }
+  } catch (e) {
+    msg.textContent = "❌ Error: " + e;
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+{% endblock %}
+
