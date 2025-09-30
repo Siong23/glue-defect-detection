@@ -9,10 +9,10 @@ This project is an AI-based inspection system for detecting glue quality on indu
   ![IMG-20250926-WA0007](https://github.com/user-attachments/assets/bb93b4b7-d285-432d-b6da-e9320c1f5a4d)
   
   **Live Detection Page** : Inspect glue in real time using a camera.
-  ![IMG-20250926-WA0006](https://github.com/user-attachments/assets/ec0dd80d-ec76-4a55-bcbb-0a7513c5ef9c)
+  ![IMG-20250926-WA0006](images/Live_Detection_Page.jpg)
   
   **Capture Page** : Capture new images for dataset expansion.
-  ![IMG-20250926-WA0005](https://github.com/user-attachments/assets/75d3383b-85b1-45a1-8508-0480ec2f2431)
+  ![IMG-20250926-WA0005](images/Capture_Page.jpg)
 
 
 **Folder Structure:**
